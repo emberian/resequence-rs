@@ -38,7 +38,7 @@ interface WasmEngineInstance {
 
 /** Singleton WASM module instance */
 let wasmModule: WasmModule | null = null;
-let wasmLoadPromise: Promise<WasmModule> | null = null;
+let wasmLoadPromise: Promise<WasmModule | null> | null = null;
 
 // WASM module path - use a variable to prevent static analysis
 const WASM_MODULE_PATH = '../../../wasm/pkg/resequence_wasm';

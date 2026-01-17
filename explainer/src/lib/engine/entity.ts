@@ -219,4 +219,25 @@ export class Entity<S extends EntityState> {
       this.addEvent(bornEvent(tick, currentState.clone() as S));
     }
   }
+
+  /**
+   * Serialize the entity to a plain object for storage.
+   */
+  serialize(): {
+    id: EntityId;
+    nameId: NameId;
+    createdAt: Tick;
+    events: { timestamp: Tick; lifecycle: LifecycleState; state: unknown }[];
+  } {
+    return {
+      id: this.id,
+      nameId: this.nameId,
+      createdAt: this.createdAt,
+      events: this.events.map(e => ({
+        timestamp: e.timestamp,
+        lifecycle: e.lifecycle,
+        state: e.state,
+      })),
+    };
+  }
 }

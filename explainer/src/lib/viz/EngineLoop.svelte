@@ -97,7 +97,7 @@
 
   // Visualization positioning
   const vizPadding = { left: 50, right: 30, top: 80, bottom: 100 };
-  const vizWidth = width - vizPadding.left - vizPadding.right;
+  const vizWidth = $derived(width - vizPadding.left - vizPadding.right);
 
   function posToX(pos: number): number {
     return vizPadding.left + (pos / 15) * vizWidth;

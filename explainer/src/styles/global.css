@@ -200,33 +200,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   cursor: grabbing;
 }
 
-button {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--bg-tertiary);
-  border-radius: 6px;
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-button:hover {
-  background: var(--bg-tertiary);
-  border-color: var(--text-muted);
-}
-
-button.primary {
-  background: var(--color-present);
-  border-color: var(--color-present);
-  color: var(--bg-primary);
-}
-
-button.primary:hover {
-  filter: brightness(1.1);
-}
+/* Button base styles moved to animation utilities section */
 
 /* Key insight callout */
 .insight {
@@ -264,6 +238,243 @@ svg text {
   fill: var(--text-secondary);
 }
 
+/* Animation utilities */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px currentColor);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Enhanced transitions */
+.transition-all {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.transition-colors {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.transition-transform {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Interactive element enhancements */
+button {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--bg-tertiary);
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+button:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--text-muted);
+  transform: translateY(-1px);
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button.primary {
+  background: var(--color-present);
+  border-color: var(--color-present);
+  color: var(--bg-primary);
+}
+
+button.primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-present);
+  outline-offset: 2px;
+}
+
+/* Improved slider styling */
+input[type="range"] {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+  appearance: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+input[type="range"]:hover {
+  background: var(--text-muted);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--color-present);
+  border-radius: 50%;
+  cursor: grab;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px rgba(88, 166, 255, 0.2);
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.1);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: var(--color-present);
+  border: none;
+  border-radius: 50%;
+  cursor: grab;
+  transition: all 0.15s ease;
+}
+
+/* SVG visualization improvements */
+svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+svg text {
+  font-family: var(--font-mono);
+  fill: var(--text-secondary);
+  user-select: none;
+}
+
+svg .interactive {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+svg .interactive:hover {
+  filter: brightness(1.15);
+}
+
+/* Glow effects for active elements */
+.glow-present {
+  filter: drop-shadow(0 0 8px var(--color-present));
+}
+
+.glow-future {
+  filter: drop-shadow(0 0 8px var(--color-future));
+}
+
+.glow-past {
+  filter: drop-shadow(0 0 8px var(--color-past));
+}
+
+.glow-chronoport {
+  filter: drop-shadow(0 0 8px var(--color-chronoport));
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   :root {
@@ -280,5 +491,16 @@ svg text {
 
   .scrolly-step-content {
     max-width: 100%;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

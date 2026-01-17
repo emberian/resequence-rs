@@ -82,7 +82,8 @@
         <!-- Source entity at t=10 -->
         <g transform="translate({50 + sourcePosition * 30}, 120)">
           {#if phase === 'initial'}
-            <circle r="15" fill="var(--state-born)" class="clickable" onclick={startChronoport} />
+            <!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
+            <circle r="15" fill="var(--state-born)" class="clickable" onclick={startChronoport} role="button" tabindex="0" />
             <text y="5" text-anchor="middle" font-size="11" fill="var(--bg-primary)">E0</text>
             <text y="40" text-anchor="middle" font-size="10" fill="var(--text-secondary)">Born</text>
             <text y="-25" text-anchor="middle" font-size="9" fill="var(--color-chronoport)">

@@ -63,8 +63,8 @@
 
         <div class="query-controls">
           <div class="slider-container">
-            <label>Query at t=</label>
-            <input type="range" min="0" max="20" bind:value={queryTick} />
+            <label for="query-tick-slider">Query at t=</label>
+            <input id="query-tick-slider" type="range" min="0" max="20" bind:value={queryTick} />
             <span class="query-value">{queryTick}</span>
           </div>
 

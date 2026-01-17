@@ -134,6 +134,7 @@
     {@const isActive = activeState === state}
     {@const color = lifecycleStateColors[state]}
 
+    <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
     <g
       class="state-node"
       class:active={isActive}

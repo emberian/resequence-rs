@@ -48,14 +48,14 @@
 
     <div class="viz-container">
       <div class="slider-container">
-        <label>Entities:</label>
-        <input type="range" min="1" max="100" bind:value={snapshotCount} />
+        <label for="entities-slider">Entities:</label>
+        <input id="entities-slider" type="range" min="1" max="100" bind:value={snapshotCount} />
         <span>{snapshotCount}</span>
       </div>
 
       <div class="slider-container">
-        <label>Ticks:</label>
-        <input type="range" min="10" max="1000" step="10" bind:value={tickCount} />
+        <label for="ticks-slider">Ticks:</label>
+        <input id="ticks-slider" type="range" min="10" max="1000" step="10" bind:value={tickCount} />
         <span>{tickCount}</span>
       </div>
 

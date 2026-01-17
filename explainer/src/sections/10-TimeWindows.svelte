@@ -139,21 +139,21 @@
 
       <div class="controls-grid">
         <div class="control-group">
-          <label>Current Tick:</label>
-          <input type="range" min="0" max="20" bind:value={currentTick} />
+          <label for="tw-current-tick">Current Tick:</label>
+          <input id="tw-current-tick" type="range" min="0" max="20" bind:value={currentTick} />
           <span>{currentTick}</span>
         </div>
 
         <div class="control-group">
-          <label>Target Tick:</label>
-          <input type="range" min="0" max="20" bind:value={targetTick} />
+          <label for="tw-target-tick">Target Tick:</label>
+          <input id="tw-target-tick" type="range" min="0" max="20" bind:value={targetTick} />
           <span>{targetTick}</span>
         </div>
 
         <div class="control-group">
-          <label>Window Past:</label>
+          <label for="tw-window-past">Window Past:</label>
           {#if windowPast !== null}
-            <input type="range" min="1" max="20" bind:value={windowPast} />
+            <input id="tw-window-past" type="range" min="1" max="20" bind:value={windowPast} />
             <span>{windowPast}</span>
             <button class="small" onclick={() => clearWindow('past')}>Remove</button>
           {:else}
@@ -163,9 +163,9 @@
         </div>
 
         <div class="control-group">
-          <label>Window Future:</label>
+          <label for="tw-window-future">Window Future:</label>
           {#if windowFuture !== null}
-            <input type="range" min="1" max="20" bind:value={windowFuture} />
+            <input id="tw-window-future" type="range" min="1" max="20" bind:value={windowFuture} />
             <span>{windowFuture}</span>
             <button class="small" onclick={() => clearWindow('future')}>Remove</button>
           {:else}
