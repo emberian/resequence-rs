@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff"/>
+      <stop offset="100%" style="stop-color:#3fb950"/>
+    </linearGradient>
+  </defs>
+  <!-- Timeline -->
+  <line x1="10" y1="50" x2="90" y2="50" stroke="#6e7681" stroke-width="4" stroke-linecap="round"/>
+  <!-- Wave cursors -->
+  <line x1="30" y1="25" x2="30" y2="75" stroke="#a371f7" stroke-width="4" stroke-linecap="round"/>
+  <line x1="50" y1="20" x2="50" y2="80" stroke="url(#grad)" stroke-width="5" stroke-linecap="round"/>
+  <line x1="70" y1="25" x2="70" y2="75" stroke="#3fb950" stroke-width="4" stroke-linecap="round"/>
+  <!-- Time travel arrow -->
+  <path d="M65,35 Q50,15 35,35" fill="none" stroke="#f0883e" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="33,30 38,38 30,40" fill="#f0883e"/>
+</svg>
