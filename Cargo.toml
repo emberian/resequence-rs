@@ -1,0 +1,27 @@
+[package]
+name = "resequence"
+version = "0.1.0"
+edition = "2021"
+authors = ["emberian"]
+description = "Time-travel simulation engine based on Achron's Resequence engine patterns"
+license = "MIT"
+repository = "https://github.com/emberian/resequence-rs"
+homepage = "https://github.com/emberian/resequence-rs"
+documentation = "https://docs.rs/resequence"
+readme = "README.md"
+keywords = ["simulation", "time-travel", "game-engine", "event-sourcing"]
+categories = ["game-development", "simulation"]
+
+[dependencies]
+thiserror = "1.0"
+
+[dev-dependencies]
+rand = "0.8"
+
+[[example]]
+name = "basic"
+path = "examples/basic.rs"
+
+[[example]]
+name = "paradox"
+path = "examples/paradox.rs"
